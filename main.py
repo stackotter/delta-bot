@@ -2,10 +2,12 @@ import discord
 from discord.ext.commands import Bot
 from dislash import InteractionClient
 
-from os import getenv
 from dotenv import load_dotenv
-from commands.urls import Urls
+from os import getenv
+
 from commands.welcome import Welcome
+from commands.urls import Urls
+
 load_dotenv()
 
 intents = discord.Intents.default()
@@ -26,4 +28,9 @@ async def on_ready():
     ))
     print("Delta Bot is ready!")
 
-bot.run(getenv("DELTA_BOT_TOKEN"))
+bot_token = getenv("BOT_TOKEN")
+if not bot_token:
+    print("Missing 'BOT_TOKEN'")
+    exit(1)
+
+bot.run(bot_token)
