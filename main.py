@@ -26,4 +26,4 @@ async def on_ready():
     ))
     print("Delta Bot is ready!")
 
-bot.run(getenv("DELTA_BOT_TOKEN"))
+bot.run(getenv("BOT_TOKEN"))
