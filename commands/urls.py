@@ -21,13 +21,13 @@ class Urls(Cog):
     @slash_command(description = "Gives you the website URL")
     async def website(self, ctx):
         embed = discord.Embed(color = discord.Colour.greyple(), title = "https://deltaclient.app")
-        embed.set_author(name = "Website")
+        embed.set_author(name = "Website", icon_url = "https://deltaclient.app/favicon@2x.png")
         await ctx.send(embed = embed)
 
     @slash_command(description = "Gives you the link to the downloads page")
     async def download(self, ctx):
         embed = discord.Embed(color = discord.Colour.dark_green(), title = "https://deltaclient.app/downloads")
-        embed.set_author(name = "Download")
+        embed.set_author(name = "Download", icon_url = "https://img.icons8.com/android/344/download.png")
         await ctx.send(embed = embed)
 
     @slash_command(description = "Gives you the URL to sponsor Delta Client")
