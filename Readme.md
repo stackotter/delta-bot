@@ -11,5 +11,5 @@ The official bot for the Delta Client Discord server.
 
 1. Make sure you have python3 installed
 2. `pip3 install -r requirements.txt`
-3. Create a `.env` file containing `DELTA_BOT_TOKEN="YOUR_TOKEN"`
+3. Create a `.env` file containing `BOT_TOKEN="YOUR_TOKEN"`
 4. `python3 main.py`

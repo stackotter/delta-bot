@@ -1,4 +1,4 @@
-import discord 
+import discord
 from discord.ext.commands import Cog
 from dislash import slash_command
 
