@@ -1,6 +1,5 @@
 import discord
-from discord.ext.commands import Bot
-from dislash import InteractionClient
+from discord.ext.commands import Bot as dBot
 
 from dotenv import load_dotenv
 from os import getenv
@@ -10,15 +9,17 @@ from commands.urls import Urls
 
 load_dotenv()
 
+class Bot(dBot):
+    async def setup_hook(self) -> None:
+        await self.add_cog(Urls(bot))
+        await self.add_cog(Welcome(bot))
+        await self.tree.sync()
+        self.remove_command("help")
+
 intents = discord.Intents.default()
 intents.members = True
-
+intents.message_content = True
 bot = Bot(command_prefix = "?", intents = intents)
-bot.remove_command("help")
-slash = InteractionClient(bot)
-
-bot.add_cog(Urls(bot))
-bot.add_cog(Welcome(bot))
 
 @bot.event
 async def on_ready():
